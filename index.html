@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Web App - Stephen Kingori</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'primary-dark': '#4B4BC8'
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 min-h-screen transition-all duration-300">
+    
+    <!-- Header with Dark Mode Toggle -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Interactive Web App</h1>
+            <div class="flex items-center space-x-4">
+                <span class="text-sm text-gray-600 dark:text-gray-300">By Stephen Kingori</span>
+                <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200">
+                    <span id="darkModeIcon" class="text-xl">🌙</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        
+        <!-- Interactive Counter Game Section -->
+        <section class="mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">🎮 Interactive Counter Game</h2>
+            <div class="text-center">
+                <div id="counterDisplay" class="text-6xl font-bold text-primary mb-6">0</div>
+                <div class="space-x-4 mb-4">
+                    <button id="incrementBtn" class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg transition-all duration-200 transform hover:scale-105">
+                        Increment (+1)
+                    </button>
+                    <button id="decrementBtn" class="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-all duration-200 transform hover:scale-105">
+                        Decrement (-1)
+                    </button>
+                    <button id="resetBtn" class="px-6 py-3 bg-gray-500 hover:bg-gray-600 text-white rounded-lg transition-all duration-200 transform hover:scale-105">
+                        Reset
+                    </button>
+                </div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">
+                    <p>Clicks: <span id="clickCount">0</span> | High Score: <span id="highScore">0</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabbed Interface Section -->
+        <section class="mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">📂 Tabbed Interface</h2>
+            
+            <!-- Tab Navigation -->
+            <div class="flex border-b border-gray-200 dark:border-gray-700 mb-6">
+                <button class="tab-btn px-6 py-3 font-medium text-primary border-b-2 border-primary" data-tab="about">About</button>
+                <button class="tab-btn px-6 py-3 font-medium text-gray-500 dark:text-gray-400 hover:text-primary" data-tab="skills">Skills</button>
+                <button class="tab-btn px-6 py-3 font-medium text-gray-500 dark:text-gray-400 hover:text-primary" data-tab="projects">Projects</button>
+                <button class="tab-btn px-6 py-3 font-medium text-gray-500 dark:text-gray-400 hover:text-primary" data-tab="contact">Contact</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="about" class="tab-content active">
+                <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-white">About Stephen</h3>
+                <p class="text-gray-600 dark:text-gray-300">I'm a passionate software engineering student at PLP, learning to build interactive and engaging web applications. This project demonstrates my understanding of JavaScript event handling, DOM manipulation, and form validation.</p>
+            </div>
+            
+            <div id="skills" class="tab-content">
+                <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Technical Skills</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg text-center">JavaScript</div>
+                    <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg text-center">HTML5</div>
+                    <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-lg text-center">CSS3</div>
+                    <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-lg text-center">React</div>
+                    <div class="bg-red-100 dark:bg-red-900 p-3 rounded-lg text-center">Node.js</div>
+                    <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg text-center">TailwindCSS</div>
+                </div>
+            </div>
+            
+            <div id="projects" class="tab-content">
+                <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Recent Projects</h3>
+                <div class="space-y-3">
+                    <div class="border dark:border-gray-700 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 dark:text-white">Interactive Web App</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">A comprehensive web application demonstrating JavaScript interactivity</p>
+                    </div>
+                    <div class="border dark:border-gray-700 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-800 dark:text-white">Portfolio Website</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Personal portfolio built with modern web technologies</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="contact" class="tab-content">
+                <h3 class="text-xl font-semibold mb-3 text-gray-800 dark:text-white">Get In Touch</h3>
+                <p class="text-gray-600 dark:text-gray-300 mb-4">Feel free to reach out for collaboration opportunities or questions about this project!</p>
+                <div class="space-y-2">
+                    <p class="text-gray-600 dark:text-gray-300">📧 Email: kingoristephen635@gmail.com</p>
+                    <p class="text-gray-600 dark:text-gray-300">🎓 Institution: PLP Software Engineering</p>
+                    <p class="text-gray-600 dark:text-gray-300">💼 GitHub: github.com/steve-kings</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">❓ Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <button class="faq-question w-full text-left p-4 font-medium text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 flex justify-between items-center">
+                        What technologies were used to build this app?
+                        <span class="faq-icon text-primary">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-600 dark:text-gray-300">
+                        This application was built using HTML5, CSS3, JavaScript (ES6+), and TailwindCSS for styling. It demonstrates modern web development practices including event handling, DOM manipulation, and form validation.
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <button class="faq-question w-full text-left p-4 font-medium text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 flex justify-between items-center">
+                        How does the form validation work?
+                        <span class="faq-icon text-primary">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-600 dark:text-gray-300">
+                        The form validation is implemented using custom JavaScript functions that check each field in real-time. It uses regular expressions for email validation, password strength checking, and provides immediate feedback to users.
+                    </div>
+                </div>
+                
+                <div class="faq-item border border-gray-200 dark:border-gray-700 rounded-lg">
+                    <button class="faq-question w-full text-left p-4 font-medium text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200 flex justify-between items-center">
+                        Is this application responsive?
+                        <span class="faq-icon text-primary">+</span>
+                    </button>
+                    <div class="faq-answer hidden p-4 pt-0 text-gray-600 dark:text-gray-300">
+                        Yes! The application is fully responsive and works seamlessly across desktop, tablet, and mobile devices. It uses modern CSS Grid and Flexbox layouts along with TailwindCSS responsive classes.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Validation Section -->
+        <section class="mb-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 transition-all duration-300">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">📋 User Registration Form</h2>
+            
+            <!-- Success Message -->
+            <div id="successMessage" class="hidden mb-6 p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-300 rounded-lg">
+                <h3 class="font-semibold">Registration Successful!</h3>
+                <p>Your account has been created successfully. Welcome to our platform!</p>
+            </div>
+            
+            <form id="registrationForm" class="space-y-6">
+                <!-- Full Name -->
+                <div>
+                    <label for="fullName" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" 
+                           class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="Enter your full name">
+                    <div id="fullNameError" class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400"></div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Email Address</label>
+                    <input type="email" id="email" name="email" 
+                           class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="Enter your email address">
+                    <div id="emailError" class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400"></div>
+                </div>
+
+                <!-- Phone Number -->
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" 
+                           class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="Enter your phone number">
+                    <div id="phoneError" class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400"></div>
+                </div>
+
+                <!-- Password -->
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Password</label>
+                    <input type="password" id="password" name="password" 
+                           class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="Create a strong password">
+                    <div id="passwordError" class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400"></div>
+                    <!-- Password Strength Indicator -->
+                    <div id="passwordStrength" class="mt-2 hidden">
+                        <div class="text-xs text-gray-600 dark:text-gray-400 mb-1">Password Strength:</div>
+                        <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                            <div id="strengthBar" class="h-2 rounded-full transition-all duration-300"></div>
+                        </div>
+                        <div id="strengthText" class="text-xs mt-1"></div>
+                    </div>
+                </div>
+
+                <!-- Confirm Password -->
+                <div>
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" 
+                           class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="Confirm your password">
+                    <div id="confirmPasswordError" class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400"></div>
+                </div>
+
+                <!-- Age -->
+                <div>
+                    <label for="age" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Age</label>
+                    <input type="number" id="age" name="age" min="13" max="120"
+                           class="w-full px-4 py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-all duration-200"
+                           placeholder="Enter your age">
+                    <div id="ageError" class="error-message hidden mt-2 text-sm text-red-600 dark:text-red-400"></div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="flex items-start">
+                    <input type="checkbox" id="terms" name="terms" 
+                           class="mt-1 mr-3 w-4 h-4 text-primary bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded focus:ring-primary focus:ring-2">
+                    <label for="terms" class="text-sm text-gray-700 dark:text-gray-300">
+                        I agree to the <a href="#" class="text-primary hover:underline">Terms and Conditions</a> and <a href="#" class="text-primary hover:underline">Privacy Policy</a>
+                    </label>
+                </div>
+                <div id="termsError" class="error-message hidden text-sm text-red-600 dark:text-red-400"></div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="submitBtn" 
+                        class="w-full py-3 px-6 text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-4 focus:ring-primary focus:ring-opacity-50 font-medium">
+                    Create Account
+                </button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 shadow-lg mt-12 transition-all duration-300">
+        <div class="container mx-auto px-4 py-6 text-center text-gray-600 dark:text-gray-400">
+            <p>&copy; 2024 Stephen Kingori - PLP Software Engineering Interactive Web App Assignment</p>
+        </div>
+    </footer>
+    <script src="/script.js"></script>
+</body>
+</html>
